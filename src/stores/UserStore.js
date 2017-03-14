@@ -9,7 +9,8 @@ export default class UserStore {
       token: "",
       admin: false,
       isLoggedIn: false,
-      failedLogin: false
+      failedLogin: false,
+      userId: ""
     });
 
     this.authUser = this.authUser.bind(this);
@@ -34,6 +35,7 @@ export default class UserStore {
       this.token = res.token;
       if(res.token){
         this.isLoggedIn = true;
+        this.userId = res.userId;
         browserHistory.replace("/");
       } else {
         this.failedLogin = true;

@@ -19,6 +19,7 @@ export default class ImageStore {
   }
 
   addNewImage(img) {
+    console.log(img.userId, "userId");
     fetch('/gifs', {
       method: 'POST',
       headers: {
@@ -28,12 +29,13 @@ export default class ImageStore {
       body: JSON.stringify({
         name: img.name,
         url: img.url,
-        description: img.description
+        description: img.description,
+        userId: img.userId
       })
     })
     .then(result => result.json())
+    // .then(result => {img._id = result._id;})
     .then(image => {
-      console.log(image, img);
       let allImages = this.images;
       allImages.push(image);
       this.images = allImages;

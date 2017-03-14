@@ -1,4 +1,5 @@
 import React from 'react';
+import { Image, Col, Button, Glyphicon } from 'react-bootstrap';
 
 class SoloImageWithButton extends React.Component {
 
@@ -17,29 +18,34 @@ class SoloImageWithButton extends React.Component {
     this.props.handleDelete(this.props.img._id);
   }
 
+
+
   render() {
     let ourButton = (
-      <button onClick={this.addOurImage} type="submit"
-       className="brn btn-primary">Add To My List</button>
+      <Button style={{width:'360px'}}block onClick={this.addOurImage} type="submit"
+       className="brn btn-primary">Add To My List</Button>
     );
     let deleteButton = (
-      <button onClick={this.triggerDelete} type="submit"
-       className="brn btn-danger">Delete</button>
+      <Button style={{width:'360px'}}block onClick={this.triggerDelete} type="submit"
+       className="brn btn-danger"><span className="glyphicon glyphicon-remove-sign" aria-hidden="true"></span>Delete</Button>
     );
 
-
     return (
-       <div key={this.props.img.name}>
+       <Col lg={4} md={4} sm={2} key={this.props.img.name}>
          <img className="gifs" src={this.props.img.url}></img>
          {this.props.addButton ? deleteButton : ourButton}
-         <h3>{this.props.img.description}</h3>
-       </div>
+         <h3>{this.props.img._id}</h3>
+       </Col>
 
     );
   }
 }
 
+
+
 SoloImageWithButton.propTypes = {
+  user: React.PropTypes.object,
+  imageStore: React.PropTypes.object,
   img: React.PropTypes.object,
   addNewImage: React.PropTypes.func,
   addButton: React.PropTypes.bool,
@@ -48,5 +54,6 @@ SoloImageWithButton.propTypes = {
   handleDelete: React.PropTypes.func,
   triggerDelete: React.PropTypes.func
 };
+
 
 export default SoloImageWithButton;

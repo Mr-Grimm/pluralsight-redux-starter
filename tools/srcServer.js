@@ -57,7 +57,7 @@ app.post('/newuser', function(req, res) {
   user.save(function(err) {
     if (err) throw err;
     console.log('User saved successfully');
-    res.json({ success: true});
+    res.json({ success: true });
   });
 });
 
@@ -74,7 +74,10 @@ apiRoutes.post('/authenticate', function(req, res) {
       console.log(req.body.username, req.body.password, user);
 
       if (!hash.verify(req.body.password, user.password)) {
-        res.json({ success: false, message: 'Authentication failed. Incorrect password.'});
+        res.json({
+          success: false,
+          message: 'Authentication failed. Incorrect password.'
+          });
       } else {
 
         let token = jwt.sign(user, app.get('superSecret'), {
@@ -84,7 +87,8 @@ apiRoutes.post('/authenticate', function(req, res) {
         res.json({
           success: true,
           message: 'Enjoy your token!',
-          token: token
+          token: token,
+          userId: user._id
         });
       }
     }
@@ -133,6 +137,7 @@ app.post('/gifs',function(req, res){
   gif.name = req.body.name;
   gif.url  = req.body.url;
   gif.description = req.body.description;
+  gif.userId = req.body.userId;
   gif.save(function(err, gif){
     if(err){
       res.send(err);

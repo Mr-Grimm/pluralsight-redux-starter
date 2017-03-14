@@ -23,18 +23,6 @@ class SearchGifs extends React.Component {
       description: e.target.value});
   }
 
-  addNewImage(img) {
-    fetch('/gifs', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(img)
-    })
-    .then(result => result.json());
-  }
-
   handleNewGif(event) {
     event.preventDefault();
     let image = {name: this.state.name, url: this.state.url, description: this.state.description};

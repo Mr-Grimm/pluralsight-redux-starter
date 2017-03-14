@@ -1,6 +1,7 @@
 import React from 'react';
 import ShowGifs from './ShowGifs';
 import { observer, inject } from 'mobx-react';
+import { Grid, Row} from 'react-bootstrap';
 
 class DisplayGifs extends React.Component {
 
@@ -22,11 +23,13 @@ class DisplayGifs extends React.Component {
 
   render() {
     return(
-      <div>
+    <Grid>
+     <Row>
       <ShowGifs gifs={this.props.imageStore.images} handleDelete={this.props.imageStore.handleDelete}
        addButton/>
 
-      </div>
+     </Row>
+    </Grid>
     );
   }
 }

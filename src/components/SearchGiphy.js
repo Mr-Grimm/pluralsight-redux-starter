@@ -47,6 +47,8 @@ class SearchGiphy extends React.Component {
   }
 
   addAndRemoveImage(img){
+    console.log("addAndRemoveImage", this.props.userStore.userId)
+    img.userId = this.props.userStore.userId;
     this.props.imageStore.addNewImage(img);
     let filArr = this.state.foundImages.filter(function(x){return x.name !== img.name;});
     this.setState({foundImages: filArr});
@@ -73,6 +75,7 @@ class SearchGiphy extends React.Component {
 }
 
 SearchGiphy.propTypes = {
+  gifs: React.PropTypes.object,
   addNewImage: React.PropTypes.func,
   removeClickedImage: React.PropTypes.func,
   imageStore: React.PropTypes.object,
