@@ -22,13 +22,13 @@ class Home extends React.Component {
   }
 
   render(){
-      return (
+    return (
         <div>
           <h2>{this.props.userStore.username}, welcome to your Giphy Site!</h2>
           <DisplayGifs gifs={this.props.imageStore.images}/>
         </div>
       );
-   }
+  }
 }
 
 Home.propTypes = {

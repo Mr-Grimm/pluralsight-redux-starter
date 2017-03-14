@@ -31,7 +31,6 @@ export default class UserStore {
     })
     .then(result => result.json())
     .then(res => {
-      console.log(res);
       this.token = res.token;
       if(res.token){
         this.isLoggedIn = true;
@@ -40,7 +39,6 @@ export default class UserStore {
       } else {
         this.failedLogin = true;
       }
-      console.log(this.isLoggedIn);
     });
   }
 

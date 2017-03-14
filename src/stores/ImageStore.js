@@ -19,7 +19,6 @@ export default class ImageStore {
   }
 
   addNewImage(img) {
-    console.log(img.userId, "userId");
     fetch('/gifs', {
       method: 'POST',
       headers: {

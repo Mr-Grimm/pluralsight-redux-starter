@@ -11,10 +11,10 @@ export default class Login extends React.Component{
       password: ""
     };
 
-this.handleUserNameChange = this.handleUserNameChange.bind(this);
-this.handlePasswordChange = this.handlePasswordChange.bind(this);
-this.addNewUser = this.addNewUser.bind(this);
-this.handleUserAdd = this.handleUserAdd.bind(this);
+    this.handleUserNameChange = this.handleUserNameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.addNewUser = this.addNewUser.bind(this);
+    this.handleUserAdd = this.handleUserAdd.bind(this);
 
 
   }
@@ -36,16 +36,16 @@ this.handleUserAdd = this.handleUserAdd.bind(this);
       body: JSON.stringify(user)
     })
     .then(result => result.json());
-    }
+  }
 
 
-    handleUserAdd(event){
-      event.preventDefault();
-      let user = {username: this.state.username, password: this.state.password};
-      this.addNewUser(user);
-      this.setState({username: "", password: ""});
-      browserHistory.push("/login");
-    }
+  handleUserAdd(event){
+    event.preventDefault();
+    let user = {username: this.state.username, password: this.state.password};
+    this.addNewUser(user);
+    this.setState({username: "", password: ""});
+    browserHistory.push("/login");
+  }
 
 
   render(){

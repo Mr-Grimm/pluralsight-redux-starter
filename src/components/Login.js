@@ -28,13 +28,13 @@ class Login extends React.Component {
     this.setState({password: e.target.value});
   }
 
-    handleUserAuth(event){
-      event.preventDefault();
-      let user = {username: this.state.username, password: this.state.password};
-      this.props.userStore.authUser(user);
-      this.props.userStore.setUser(user);
-      this.setState({username: "", password: ""});
-    }
+  handleUserAuth(event){
+    event.preventDefault();
+    let user = {username: this.state.username, password: this.state.password};
+    this.props.userStore.authUser(user);
+    this.props.userStore.setUser(user);
+    this.setState({username: "", password: ""});
+  }
 
 
   render(){

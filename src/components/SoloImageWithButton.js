@@ -14,7 +14,6 @@ class SoloImageWithButton extends React.Component {
   }
 
   triggerDelete(e){
-    console.log(this.props.img._id);
     this.props.handleDelete(this.props.img._id);
   }
 

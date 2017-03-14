@@ -47,7 +47,6 @@ class SearchGiphy extends React.Component {
   }
 
   addAndRemoveImage(img){
-    console.log("addAndRemoveImage", this.props.userStore.userId)
     img.userId = this.props.userStore.userId;
     this.props.imageStore.addNewImage(img);
     let filArr = this.state.foundImages.filter(function(x){return x.name !== img.name;});

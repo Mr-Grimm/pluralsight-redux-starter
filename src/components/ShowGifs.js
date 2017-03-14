@@ -10,7 +10,6 @@ class ShowGifs extends React.Component {
   render () {
     let props = this.props;
     let images = this.props.gifs.filter( img => {
-      console.log(props.userStore.userId, img.userId);
       return props.addButton ? props.userStore.userId == img.userId : true;
     });
     images = images.map(function(img) {
